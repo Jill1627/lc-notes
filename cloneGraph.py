@@ -14,21 +14,22 @@
 #         self.label = x
 #         self.neighbors = []
 
+from collections import deque
 class Solution:
     # @param node, a undirected graph node
     # @return a undirected graph node
     def cloneGraph(self, node):
         if not node:
             return node
-        root = UndirectedGraphNode(node.label)
-        copied = {}
-        copied[root.label] = root
-        q = [node]
-        while q:
-            curr = q.pop(0)
-            for n in curr.neighbors:
-                if n.label not in copied:
-                    q.append(n)
-                    copied[n.label] = UndirectedGraphNode(n.label)
-                copied[curr.label].neighbors.append(copied[n.label])
-        return root
+        cloned = dict()
+        queue = deque()
+        cloned[node] = UndirectedGraphNode(node.label)
+        queue.append(node)
+        while queue:
+            curr = queue.popleft()
+            for neighbor in curr.neighbors:
+                if neighbor not in cloned:
+                    cloned[neighbor] = UndirectedGraphNode(neighbor.label)
+                    queue.append(neighbor)
+                cloned[curr].neighbors.append(cloned[neighbor])
+        return cloned[node]

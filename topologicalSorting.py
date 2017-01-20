@@ -14,7 +14,7 @@ class Solution(object):
         degreeMap = dict()
         queue = deque()
         """
-        Step 1: 将所有点加入degreeMap，key = node, value = in degree
+        Step 1: 将所有点加入degreeMap，node : indegree
         """
         for node in graph:
             for neighbor in node.neighbors:
@@ -23,7 +23,7 @@ class Solution(object):
                 else:
                     degreeMap[neighbor] = 1
         """
-        Step 2: 将所有indegree = 0的点加入答案，并且加入queue
+        Step 2: 将所有indegree = 0的点加入答案，并且加入queue, as starting nodes
         """
         for node in graph:
             if node not in degreeMap:

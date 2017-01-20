@@ -1,6 +1,7 @@
 """
 sixDegrees is a typical BFS in undirected graph problem
 思路：用一个Map来存visited node 和 degree，用一个queue来存等待访问的node
+hashmap来存储每个node对应的degree（相对于s）
 """
 
 from collections import deque
