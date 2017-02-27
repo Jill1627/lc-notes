@@ -21,10 +21,10 @@ class Solution(object):
         stack = list()
         curr = root
         while curr or stack:
-            while curr:
+            while curr: # only add existing node to the stack
                 stack.append(curr)
-                curr = curr.left
-            curr = stack.pop()
+                curr = curr.left # go for its left child
+            curr = stack.pop() # the popped node is the lowest left at the moment, ready to be added into result
             res.append(curr.val)
             curr = curr.right
         return res

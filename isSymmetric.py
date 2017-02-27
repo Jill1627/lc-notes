@@ -2,24 +2,24 @@
 问题：判断一棵树是否对称
 思路：使用辅助程序判断左子树和右子树是否成mirror关系
 """
+# Definition for a binary tree node.
+# class TreeNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
 
-"""
-Definition of TreeNode:
-class TreeNode:
-    def __init__(self, val):
-        this.val = val
-        this.left, this.right = None, None
-"""
-class Solution:
-    """
-    @param a, b, the root of binary trees.
-    @return true if they are tweaked identical, or false.
-    """
-    def isTweakedIdentical(self, a, b):
-        if not a and not b:
+class Solution(object):
+    def isSymmetric(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        if not root or (root.left is None and root.right is None):
             return True
-        if a and b:
-            left = self.isTweakedIdentical(a.left, b.left) or self.isTweakedIdentical(a.left, b.right)
-            right = self.isTweakedIdentical(a.right, b.right) or self.isTweakedIdentical(a.right, b.left)
-            return a.val == b.val and left and right
+        return self.helper(root.left, root.right)
+    def helper(self, left, right):
+        if left is None and right is None: return True
+        if left and right and left.val == right.val:
+            return self.helper(left.left, right.right) and self.helper(left.right, right.left)
         return False
