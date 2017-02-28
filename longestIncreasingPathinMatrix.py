@@ -1,3 +1,6 @@
+""" 有bug """
+
+
 class Solution(object):
     directions = [[0,1], [1,0],[0,-1],[-1,0]]
     def longestIncreasingPath(self, matrix):
