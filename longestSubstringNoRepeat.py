@@ -7,7 +7,7 @@ class Solution(object):
         """
         if not s or len(s) == 0: return 0
         longest = 0
-        seen = dict()
+        seen = dict() # map char with its index
         j = 0 # left pointer
         for i in range(len(s)):
             if s[i] in seen:

@@ -1,5 +1,5 @@
 """
-问题：sort list
+问题：Merge Sort LL
 思路：用merge sort，三步: 找中点mid，sort右链，mid.next = None, sort左链，merge左右
 """
 

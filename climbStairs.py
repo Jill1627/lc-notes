@@ -1,3 +1,25 @@
+"""LC70 Climbing Stairs """
+"""Fibonacci recur -> Dynamic Programming -> 2 variable array """
+
+# My own solution
+class Solution(object):
+    def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        if n < 0: return 0
+        if n == 0 or n == 1:
+            return 1
+        prev = 1
+        curr = 1
+        for i in xrange(2, n + 1):
+            temp = curr
+            curr = curr + prev
+            prev = temp
+        return curr
+
+# same thing, but harder to understand
 class Solution(object):
     def climbStairs(self, n):
         if n<= 0:
