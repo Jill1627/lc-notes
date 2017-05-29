@@ -8,6 +8,26 @@
 完成
 """
 
+# My dp solution
+class Solution(object):
+    def myPow(self, x, n):
+        """
+        :type x: float
+        :type n: int
+        :rtype: float
+        """
+        if n < 0:
+            n = -n
+            x = 1/x
+        myPow = [1 for i in xrange(n + 1)]
+        myPow[0] = 1
+        if n > 0:
+            myPow[1] = x
+        for i in xrange(2, n + 1):
+            myPow[i] = myPow[i / 2] * myPow[i / 2] if i % 2 == 0 else myPow[i / 2] * myPow[i / 2] * x
+        return myPow[n]
+
+# my recursive solution - potentially slow
 class Solution(object):
     def myPow(self, x, n):
         if n == 0:

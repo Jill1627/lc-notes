@@ -12,19 +12,19 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        result = list()
+        res = list()
         if nums is None or len(nums) == 0:
-            return result
+            return res
         nums.sort()
-        self.recur_helper(result, [], nums)
-        return result
-    def recur_helper(self, result, path, nums):
+        self.helper(nums, res, [])
+        return res
+    def helper(self, nums, res, level):
         if len(nums) == 0:
-            result.append(list(path))
+            res.append(list(level))
             return
-        for i in range(len(nums)):
+        for i in xrange(len(nums)):
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
-            path.append(nums[i])
-            self.recur_helper(result, path, nums[:i] + nums[i + 1:])
-            path.pop()
+            level.append(nums[i])
+            self.helper(nums[ : i] + nums[i + 1 : ], res, level)
+            level.pop()

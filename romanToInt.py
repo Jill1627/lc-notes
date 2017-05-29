@@ -29,3 +29,27 @@ class Solution(object):
                 sum += Roman[s[index]]
             index -= 1
         return sum
+
+""" own solution: basically the same as above """
+class Solution(object):
+    def romanToInt(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        lookup = dict()
+        lookup['I'] = 1
+        lookup['V'] = 5
+        lookup['X'] = 10
+        lookup['L'] = 50
+        lookup['C'] = 100
+        lookup['D'] = 500
+        lookup['M'] = 1000
+
+        val = lookup[s[len(s) - 1]]
+        for i in range(len(s) - 2, -1, -1):
+            if lookup[s[i]] < lookup[s[i + 1]]:
+                val -= lookup[s[i]]
+            else:
+                val += lookup[s[i]]
+        return val

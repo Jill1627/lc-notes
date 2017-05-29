@@ -1,4 +1,6 @@
-# LC 127 word ladder
+"""
+LC 127 word ladder
+"""
 
 from collections import deque
 from sets import Set
@@ -48,5 +50,3 @@ class Solution(object):
         listForm = list(word)
         listForm[index] = chr(char)
         word = "".join(listForm)
-
-        
