@@ -24,4 +24,6 @@ class Solution(object):
                 start = mid
             else:
                 end = mid
+        if start * start == num or end * end == num:
+            return True
         return False

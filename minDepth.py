@@ -29,7 +29,7 @@ class Solution(object):
         return min(self.minDepth(root.left), self.minDepth(root.right)) + 1
 
 """
-Solution 2
+Solution 2 - better
 """
 
 class Solution(object):

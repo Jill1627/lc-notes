@@ -40,8 +40,9 @@
 #        Return None if this NestedInteger holds a single integer
 #        :rtype List[NestedInteger]
 #        """
-""" LC 364 Nested List Weight Sum II """
 """
+LC 364 Nested List Weight Sum II
+
 Where the weight is assigned inversely, carry the prev level integer sum to the next deeper level
 """
 

@@ -1,6 +1,6 @@
 """
 LC.366 Find Leaves of Binary Tree
-Strategy
+Strategy: use a helper method to calculate height of node, and along the way, update result
 """
 
 # Definition for a binary tree node.
@@ -16,18 +16,16 @@ class Solution(object):
         :type root: TreeNode
         :rtype: List[List[int]]
         """
-        if root is None:
-            return root
         res = list()
-        self.helper(root, res)
+        if not root:
+            return res
+        self.height(root, res)
         return res
-    # Helper function returns the height of a node - if leaf, then 0
-    def height(self, node, res):
-        if node is None:
-            return -1
-        level = 1 + max(self.height(node.left, res), self.height(node.right, res))
-        # add a level to the res if res does not contain all the levels
-        if len(res) < level + 1:
-            res.append([])
-        res[level].append(node.val)
-        return level
+    def height(self, root, res):
+        if root is None:
+            return 0
+        height = 1 + max(self.height(root.left, res), self.height(root.right, res))
+        while len(res) < height:
+            res.append(list())
+        res[height - 1].append(root.val)
+        return height

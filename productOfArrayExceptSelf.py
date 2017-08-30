@@ -1,5 +1,11 @@
 """
 LC 238. Product of array except self
+Idea: similar to prefix sum, use prefix product
+2 pass for loop, second loop in reverse order
+
+Steps:
+1. generate an array of prefix product except self: res
+2. loop through res in reverse order, *= postfix in each iteration, maintain a variable postfix, cumulative product in reverse order
 """
 
 """ O(n) time O(1) space """
@@ -10,14 +16,15 @@ class Solution(object):
         :rtype: List[int]
         """
         res = list()
-        if nums is None or len(nums) == 0:
+        if not nums or len(nums) == 0:
             return res
-        n = len(nums)
-        res = [1 for i in xrange(n)]
-        for i in xrange(1, n):
-            res[i] = res[i - 1] * nums[i - 1]
+        # initialize res, first element = 1, add all prefix product except self
+        res.append(1)
+        for i in xrange(1, len(nums)):
+            res.append(nums[i - 1] * res[i - 1])
+        # update res with second half
         postfix = 1
-        for i in xrange(n - 1, -1, -1):
+        for i in xrange(len(nums) - 1, -1, -1):
             res[i] *= postfix
             postfix *= nums[i]
         return res

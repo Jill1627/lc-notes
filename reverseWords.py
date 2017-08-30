@@ -7,7 +7,7 @@ class Solution(object):
         sList = s.split()
         return " ".join(sList[::-1])
 
-""" iterate """
+""" iterative """
 class Solution(object):
     def reverseWords(self, s):
         """

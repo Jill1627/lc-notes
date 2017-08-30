@@ -1,4 +1,8 @@
 # LC 339 Nested List Weight Sum
+"""
+Recursive: use a helper method which takes depth as parameter
+Iterative: Queue + BFS
+"""
 
 """ Recursive """
 class Solution(object):

@@ -15,21 +15,22 @@ class Solution(object):
         :type n: int
         :rtype: str
         """
+        # base case
         if n is None or n == 0:
             return "0"
         if n == 1:
             return "1"
-        res = ""
+        # recursion
         prev = self.countAndSay(n - 1)
         prevNum = prev[0]
         count = 1
-        for i in range(1, len(prev)):
-            curNum = prev[i]
-            if curNum == prevNum:
+        res = ""
+        for i in xrange(1, len(prev)):
+            if prev[i] == prevNum:
                 count += 1
             else:
                 res = res + str(count) + prevNum
+                prevNum = prev[i]
                 count = 1
-                prevNum = curNum
         res = res + str(count) + prevNum
         return res

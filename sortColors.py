@@ -19,9 +19,10 @@ class Solution(object):
         hi = len(nums) - 1
         for i in xrange(len(nums)):
             """
-            Pay attention to 2 things:
+            Pay attention to 3 things:
             1. Use a while loop not an if
             2. Check i < hi before entering loop
+            3. Swap with right first, then swap with left
             """
             while nums[i] == 2 and i < hi:
                 nums[i], nums[hi] = nums[hi], nums[i]

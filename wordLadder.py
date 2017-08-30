@@ -1,5 +1,11 @@
 """
 LC 127 word ladder
+
+Idea: Graph BFS
+
+Steps:
+1. Initialize: add beginWord and endWord to wordList, a set visited, a queue, a result length
+2. BFS, while queue is not empty,
 """
 
 from collections import deque
@@ -16,6 +22,7 @@ class Solution(object):
             return 0
         if beginWord is endWord:
             return 1
+        # Initialize
         wordList.add(beginWord)
         wordList.add(endWord)
         visited = set()
@@ -23,6 +30,7 @@ class Solution(object):
         visited.add(beginWord)
         queue.append(beginWord)
         length = 1
+        # BFS
         while queue:
             length += 1
             qSize = len(queue)

@@ -1,5 +1,9 @@
 # LC283 FB
-""" Two pointers """
+""" Two pointers
+Problem desc: move all zeroes to the left while maintaiing original order of non-zeroes
+Idea: use a variable to mark the left boundary of all zeroes
+loop through, enoucnter a non-zero: swap with boundary
+"""
 
 class Solution(object):
     def moveZeroes(self, nums):

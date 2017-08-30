@@ -29,7 +29,7 @@ class Solution(object):
     def dfs(self, board, word, i, j):
         if len(word) == 0:
             return True
-        if  < 0 or i >= len(board) or j < 0 or j >= len(board[0]) or word[0] != board[i][j]:
+        if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]) or word[0] != board[i][j]:
             return False
         temp = board[i][j]
         board[i][j] = '#'

@@ -7,7 +7,7 @@
 4. 每一轮merge完，将lists = newList 再合并一轮，直到所有都成一条LL
 完成
 
-*********有空看一下priority queue解法***************
+*********有空看一下priority queue解法*************** Get!
 """
 
 # Definition for singly-linked list.
@@ -24,10 +24,10 @@ class Solution(object):
         """
         if not lists:
             return lists
-        while len(lists) > 1:
+        while len(lists) > 1: # in list of LL, when there are more than 1 LL
             size = len(lists)
             newList = list()
-            for i in range(0, size - 1, 2):
+            for i in range(0, size - 1, 2): # inner loop for all LLs to merge
                 mergedList = self.merge(lists[i], lists[i + 1])
                 newList.append(mergedList)
             if size % 2 == 1:

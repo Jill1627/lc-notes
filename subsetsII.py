@@ -16,11 +16,11 @@ class Solution(object):
         self.recur_helper(result, [], nums, 0)
         return result
     def recur_helper(self, result, path, nums, startIndex):
-        if startIndex > len(nums):
-            return
+        # if startIndex > len(nums):
+        #     return
         result.append(list(path))
         for i in range(startIndex, len(nums)):
-            if (i != 0 and nums[i] == nums[i - 1] and i > startIndex):
+            if i > startIndex and nums[i] == nums[i - 1]:
                 continue
             path.append(nums[i])
             self.recur_helper(result, path, nums, i + 1)

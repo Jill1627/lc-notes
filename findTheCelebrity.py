@@ -18,7 +18,7 @@ class Solution(object):
         :rtype: int
         """
         # two pass
-        # 1. find the celebrity candidate
+        # 1. find the celebrity candidate - candidates knows nobody else behind him, and all people before him knows previous candidate
         celebrity = 0
         for i in xrange(1, n):
             if not knows(i, celebrity):

@@ -1,5 +1,11 @@
 # LC139 Word Break Google, Facebook, Uber, Amazon, Yahoo, Bloomberg
-""" DP: f(i) up to char at index i, excluding i, whether it can be breaked into words in dictionary """
+""" DP: f(i) up to char at index i, excluding i, whether it can be breaked into words in dictionary
+
+Steps:
+1. Set up 1d boolean array with size of len(s) + 1
+2. function dp[i] is defined as whether substring s[: i] is breakable
+3. subproblem dp[i] can be repeatedly updated as j going through each pos within the range of i
+"""
 
 class Solution(object):
     def wordBreak(self, s, wordDict):
