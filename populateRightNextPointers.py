@@ -20,7 +20,6 @@ class Solution:
         if root is None:
             return
         pre = root
-        cur = pre
         # pre iterate leftmost node of each level
         while pre.left:
             curr = pre
